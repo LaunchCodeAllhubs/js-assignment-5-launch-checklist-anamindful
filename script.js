@@ -5,7 +5,8 @@ window.addEventListener("load", function() {
 
 document.getElementById('formSubmit').addEventListener('click', function(event){
     event.preventDefault();
-    confirm("Did you submit all data?");
+    //test button to see how it is working
+    confirm("All fields are required");
 });
 
 
