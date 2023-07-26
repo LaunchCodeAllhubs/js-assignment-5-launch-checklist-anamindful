@@ -2,10 +2,10 @@
 
 window.addEventListener("load", function() {
 
-const formSubmitButton = document.getElementById('formSubmit');
-formSubmitButton.addEventListener("click", function(){
-    let fillOutForm = confirm("Test button");
-    console.log(fillOutForm);
+
+document.getElementById('formSubmit').addEventListener('click', function(event){
+    event.preventDefault();
+    confirm("Did you submit all data?");
 });
 
 
