@@ -1,54 +1,56 @@
-// Write your JavaScript code here!
-
 window.addEventListener("load", function() {
 
-
-document.getElementById('formSubmit').addEventListener('click', function(event){
+document.getElementById('form').addEventListener('submit', function(event){
     event.preventDefault();
-    //test button to see how it is working
-   // confirm("All fields are required");
     
-        const nameInput = document.getElementById('pilotName');
-        const copilotName = document.getElementById('copilotName');
-        const fuelInput = document.getElementById('fuelLevel');
-        const cargoInput = document.getElementById('cargoMass');
+    let pilotNameInput = document.querySelector("input[name='pilotName']");
+    let copilotNameInput = document.querySelector("input[name='copilotName']");
+    let fuelLevelInput = document.querySelector("input[name='fuelLevel']");
+    let cargoMassInput = document.querySelector("input[name='cargoMass']");
     
-        // Checking to see if the form is blank
-        if (!nameInput || !copilotName || !fuelInput || !cargoInput) {
-            alert('Please fill in all fields.');
-            return;
-        }
-          
-         // Validating names to contain only letters and spaces
-        if (!/^[a-zA-Z ]+$/.test(nameInput)) {
-            alert('Invalid response. Please enter text for pilot.');
-            return;
-        }
-          
-        if (!/^[a-zA-Z ]+$/.test(copilotName)) {
-            alert('Invalid response. Please enter text for copilot.');
-            return;
-        }
-          
-        // Validating fuel and cargo input to be numbers
-        if (isNaN(fuelInput) || isNaN(cargoInput)) {
-            alert('Invalid response, please enter a number for fuel and cargo.');
-            return;
-        }
-    
-        confirm('Form Successful!');
+    if (
+    pilotNameInput.value === "" || 
+    copilotNameInput.value === "" ||
+    fuelLevelInput.value === "" ||  
+    cargoMassInput.value === "" 
+     ) {
+      alert("All fields are required")
+      return;
+  
+    if (isNaN(Number(fuelLevel)) || isNaN(Number(cargoMass))) {
+      alert("Fuel level and cargo mass must be valid numbers");
+        return;
+      }
+   }
+      
+      formSubmission(
+        document,
+        document.querySelector("form"),
+        pilotNameInput.value,
+        copilotNameInput.value,
+        fuelLevelInput.value,
+        cargoMassInput.value
+      );
+    });
 });
 
+// Fetch planetary data using myFetch() function
+myFetch().then(function(result) {
+    const planets = result;
+     // Pick a random planet using pickPlanet() function
+    if (planets) {
+    const selectedPlanet = pickPlanet(planets);
+    
 
-   let listedPlanets;
-   // Set listedPlanetsResponse equal to the value returned by calling myFetch()
-   let listedPlanetsResponse;
-   listedPlanetsResponse.then(function (result) {
-       listedPlanets = result;
-       console.log(listedPlanets);
-   }).then(function () {
-       console.log(listedPlanets);
-       // Below this comment call the appropriate helper functions to pick a planet fom the list of planets and add that information to your destination.
-   })
-   
-});
+    // Update mission destination information using addDestinationInfo() function
+    addDestinationInfo(
+      document,
+      selectedPlanet.name,
+      selectedPlanet.diameter,
+      selectedPlanet.star,
+      selectedPlanet.distance,
+      selectedPlanet.moons,
+      selectedPlanet.image
+     );
+     }
+    });
