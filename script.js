@@ -1,23 +1,24 @@
-window.addEventListener("load", function() {
 
-document.getElementById('form').addEventListener('submit', function(event){
+window.addEventListener("load", function(){
+  document.querySelector('form').addEventListener('submit', function(event){
     event.preventDefault();
-    
-    let pilotNameInput = document.querySelector("input[name='pilotName']");
-    let copilotNameInput = document.querySelector("input[name='copilotName']");
-    let fuelLevelInput = document.querySelector("input[name='fuelLevel']");
-    let cargoMassInput = document.querySelector("input[name='cargoMass']");
-    
-    if (
+//test button    alert('Submit was clicked');
+  let pilotNameInput = document.querySelector("input[name='pilotName']");
+  let copilotNameInput = document.querySelector("input[name='copilotName']");
+  let fuelLevelInput = document.querySelector("input[name='fuelLevel']");
+  let cargoMassInput = document.querySelector("input[name='cargoMass']");
+
+  //need to test for string for first two and are the last two numbers.
+  if (
     pilotNameInput.value === "" || 
     copilotNameInput.value === "" ||
     fuelLevelInput.value === "" ||  
     cargoMassInput.value === "" 
-     ) {
+   ) {
       alert("All fields are required")
       return;
   
-    if (isNaN(Number(fuelLevel)) || isNaN(Number(cargoMass))) {
+  if (isNaN(Number(fuelLevel)) || isNaN(Number(cargoMass))) {
       alert("Fuel level and cargo mass must be valid numbers");
         return;
       }
@@ -33,6 +34,7 @@ document.getElementById('form').addEventListener('submit', function(event){
       );
     });
 });
+
 
 // Fetch planetary data using myFetch() function
 myFetch().then(function(result) {
