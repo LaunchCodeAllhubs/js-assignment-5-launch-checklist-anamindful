@@ -20,13 +20,8 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
 }
 
 // Helper function to validate input
-function validateInput(input) {
-  const pilotName = pilotNameInput.value;
-  const copilotName = copilotNameInput.value;
-  const fuelLevel = fuelLevelInput.value;
-  const cargoMass = cargoMassInput.value;
+function validateInput(pilotName, copilotName, fuelLevel, cargoMass) {
 
-  // Check if any of the fields are empty
   if (
     pilotName === "" ||
     copilotName === "" ||
