@@ -55,7 +55,7 @@ function formSubmission(document, form, pilot, coPilot, fuelLevel, cargoMass) {
     const pilotStatus = document.getElementById("pilotStatus");
     const coPilotStatus = document.getElementById("copilotStatus");
     pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
-    coPilotStatus.innerHTML = `Co-Pilot ${coPilot} is ready for launch`;
+    coPilotStatus.innerHTML = `Co-pilot ${coPilot} is ready for launch`;
   
     // Check if fuel level and cargo mass inputs are valid
     const fuelStatus = document.getElementById("fuelStatus");
@@ -86,7 +86,7 @@ function formSubmission(document, form, pilot, coPilot, fuelLevel, cargoMass) {
       document.getElementById("launchStatus").style.color = "rgb(65, 159, 106)";
     }
   
-   form.reset();
+   //form.reset();
   }
   
   // Rest of the code...
