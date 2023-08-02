@@ -81,7 +81,7 @@ function formSubmission(document, form, pilot, coPilot, fuelLevel, cargoMass) {
   
     // Check if shuttle is ready for launch
     if (fuelLevel >= 10000 && cargoMass <= 10000) {
-      document.getElementById("faultyItems").style.visibility = "hidden";
+      document.getElementById("faultyItems").style.visibility = "visible";
       document.getElementById("launchStatus").innerHTML = "Shuttle is Ready for Launch";
       document.getElementById("launchStatus").style.color = "rgb(65, 159, 106)";
     }
