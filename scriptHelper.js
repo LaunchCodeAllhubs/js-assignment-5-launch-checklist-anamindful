@@ -68,6 +68,15 @@ function formSubmission(
     alert("Fuel level and cargo mass must be valid numbers");
     return; // Stop the form submission if fuel level or cargo mass is not a valid number
   }
+
+  if (
+    pilotValidation === "Is a Number" ||
+    coPilotValidation === "Is a Number"
+  ){
+    alert("Make sure to enter valid information for each field");
+    return;
+  }
+  
   //Update shuttle requirements with pilot and co-pilot names
   const pilotStatus = document.getElementById("pilotStatus");
   const coPilotStatus = document.getElementById("copilotStatus");
